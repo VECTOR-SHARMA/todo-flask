@@ -1,0 +1,12 @@
+Flask>=1.1
+Flask-OIDC>=1.1
+Flask-OpenID>=1.1
+Flask-SQLAlchemy
+Authlib==0.14.3
+oauth2client
+itsdangerous==2.0.1
+six
+keycloak
+requests
+keycloak-client
+MySQL

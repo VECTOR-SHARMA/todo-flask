@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div>
+
+    <h2> Hi {{username}}!</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table table-dark">
+                    <thead class="thead-dark">
+                        <tr><th scope="col">Id</th><th scope="col">Title</th><th scope="col">Description</th><th scope="col">Time</th></tr>
+                    </thead>
+                    {%for row in data%}
+                    <tr><td>{{row[0]}}</td><td>{{row[1]}}</td><td>{{row[2]}}</td><td>{{row[3]}}</td><td><a href="/delete?id={{row[0]}}">Delete</a></td></tr>
+                    {%endfor%}
+                </table>
+            </div>
+            <div class="col">
+                <form action="/post" method="post" name="add">
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" access="false" id="title">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="3" name="description" access="false" id="description"></textarea>
+                    </div>
+                    <div>
+                        <label for="time">Time</label>
+                        <input type="time" class="form-control" name="time" access="false" id="time">
+                    </div>
+                    <div>
+                        <label for="image">Image</label>
+                        <input type="file" name="image" access="false" id="image">
+                    </div>
+                    <br />
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-large" access="false">Add ToDo</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
